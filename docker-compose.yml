@@ -1,0 +1,37 @@
+version: "3"
+services:
+  yourapp: 
+    build:
+      context: ./APP
+      dockerfile: Dockerfile
+      args:
+        buildno: 1
+  yourwebserver:
+    build:
+      context: ./WEBSERVER
+      dockerfile: Dockerfile
+      args:
+        buildno: 1
+  yourdb:
+    restart: 'always'
+    build:
+      context: ./DB
+      dockerfile: Dockerfile
+      args:
+        buildno: 1
+    ports:
+      - '5432:5432'
+    environment:
+      - "APP_DB_USER=app_admin_jam"
+      - "APP_DB_PASSWORD=frosties"
+      - "APP_DB_DATABASE=example"
+      - "POSTGRES_PASSWORD=p0stgr3s"
+    networks:
+      localdev:
+        aliases:
+          - 'postgres'
+
+networks:
+  localdev:
+
+
