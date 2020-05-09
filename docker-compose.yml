@@ -1,13 +1,17 @@
 version: "3"
 services:
-  yourapp: 
-    ports:
-      - '8000:8000'
+  yourapp:
     build:
       context: ./APP
       dockerfile: Dockerfile
       args:
         buildno: 1
+    ports:
+      - '8080:8080'
+    networks:
+      localdev:
+        aliases:
+          - 'postgres'
   yourwebserver:
     build:
       context: ./WEBSERVER
@@ -35,5 +39,3 @@ services:
 
 networks:
   localdev:
-
-
