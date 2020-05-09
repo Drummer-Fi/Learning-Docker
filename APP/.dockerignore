@@ -1,0 +1,4 @@
+app.egg-info
+dist
+app/__pycache__
+tests
