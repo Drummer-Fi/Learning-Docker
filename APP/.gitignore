@@ -1,0 +1,4 @@
+app.egg-info
+dist
+poetry.lock
+app/__pycache__
