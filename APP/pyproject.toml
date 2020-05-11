@@ -5,11 +5,12 @@ description = ""
 authors = ["James <jamesvanniekerk25@gmail.com>"]
 
 [tool.poetry.scripts]
-main = "app:main.py"
+main = "sanic.main:run_server"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-psycopg2 = "^2.8.5"
+psycopg2-binary = "^2.8.5"
+sanic = "^19.12.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
